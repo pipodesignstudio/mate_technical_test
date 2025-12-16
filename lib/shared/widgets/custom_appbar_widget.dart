@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:mate_technical_test/router/basic_routes.dart';
+import 'package:mate_technical_test/shared/widgets/index.dart';
 import 'package:mate_technical_test/shared/widgets/page_tag_widget.dart';
 import 'package:remixicon/remixicon.dart';
 
@@ -20,23 +21,7 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
               icon: const Icon(RemixIcons.arrow_left_s_line, color: Colors.white),
               onPressed: () => Navigator.pushNamed(context, BasicRoutes.feed),
             )
-          : Padding(
-              padding: const EdgeInsets.only(left: 8),
-              child: TextButton.icon(
-                style: TextButton.styleFrom(
-                  padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 10),
-                  minimumSize: Size.zero,
-                  tapTargetSize: MaterialTapTargetSize.shrinkWrap,
-                  foregroundColor: Colors.white,
-                ),
-                onPressed: () {},
-                icon: const Icon(RemixIcons.equalizer_2_line, size: 24),
-                label: const Text(
-                  '3 active',
-                  style: TextStyle(color: Colors.white, fontSize: 16, fontWeight: FontWeight.bold),
-                ),
-              ),
-            ),
+          : DisciplineWidget(),
       centerTitle: true,
       title: detailedView
           ? null

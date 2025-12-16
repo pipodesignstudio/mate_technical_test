@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:mate_technical_test/shared/widgets/event_title_widget.dart';
 import 'package:remixicon/remixicon.dart';
 import 'dart:ui';
 
@@ -48,14 +49,7 @@ class FeedMainWidget extends StatelessWidget {
                         mainAxisAlignment: MainAxisAlignment.center,
                         crossAxisAlignment: CrossAxisAlignment.center,
                         children: const <Widget>[
-                          Flexible(
-                            child: Text(
-                              softWrap: true,
-                              textAlign: TextAlign.center,
-                              'Hicking alongside seacoast in costabrava',
-                              style: TextStyle(color: Colors.white, fontSize: 32, fontWeight: FontWeight.bold),
-                            ),
-                          ),
+                          EventTitleWidget()
                         ],
                       ),
                     ),

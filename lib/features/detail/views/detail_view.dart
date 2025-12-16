@@ -2,6 +2,9 @@
 import 'package:flutter/material.dart';
 import 'package:mate_technical_test/features/detail/widgets/full_semicircle_widget.dart';
 import 'package:mate_technical_test/features/detail/widgets/semicircle_painter.dart';
+import 'package:mate_technical_test/shared/widgets/event_title_widget.dart';
+import 'package:mate_technical_test/shared/widgets/feed_buttons_widget.dart';
+import 'package:mate_technical_test/shared/widgets/host_name_widget.dart';
 
 class DetailView extends StatelessWidget {
   const DetailView({super.key});
@@ -16,24 +19,32 @@ class DetailView extends StatelessWidget {
       physics: const BouncingScrollPhysics(),
       children: <Widget>[
         SizedBox(
-          height: ss.height * 0.5,
+          height: ss.height * 0.6,
           child: Stack(
             children: [
               Center(
-                child: const Hero(
+                child: Hero(
                   tag: heroTag,
-                  child: Image(
-                    width: double.infinity,
-                    image: AssetImage('assets/img/bg.png'),
-                    fit: BoxFit.cover,
+                  child: Transform.translate(
+                    offset: const Offset(0, 0),
+                    child: Image(
+                      alignment: Alignment.topCenter,
+                      width: double.infinity,
+                      image: AssetImage('assets/img/bg.png'),
+                      fit: BoxFit.cover,
+                    ),
                   ),
                 ),
               ),
-             Positioned(
-              bottom: 0,
-              left: 0,
-              right: 0,
-              child: FullSemicricle()),
+              Positioned(
+                bottom: - 40,
+                left: 0,
+                right: 0,
+                child: SizedBox(
+                  height: 220,
+                  child: const FullSemicricle(),
+                ),
+              ),
             ],
           ),
         ),
@@ -71,21 +82,13 @@ class DetailView extends StatelessWidget {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-
-                    SizedBox(height: 8),
-                    Text(
-                      'Detalle del evento',
-                      style: TextStyle(
-                        color: Colors.white,
-                        fontSize: 20,
-                        fontWeight: FontWeight.bold,
-                      ),
-                    ),
-                    SizedBox(height: 12),
-                    Text(
-                      'Aqui puedes anadir el contenido adicional que se extiende hacia abajo.',
-                      style: TextStyle(color: Colors.white70, fontSize: 16),
-                    ),
+                    EventTitleWidget(),
+                      Row(
+                        children: [
+                        HostNameWidget()
+                      ]),
+                    FeedButtonsWidget(  
+                      isDetail: true),
                     SizedBox(height: 200),
                   ],
                 ),

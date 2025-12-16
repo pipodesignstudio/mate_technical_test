@@ -21,26 +21,7 @@ class FeedSocialInfoWidget extends StatelessWidget {
                   mainAxisSize: MainAxisSize.min,
                   children: const [
                     Flexible(
-                      child: Text.rich(
-                        TextSpan(
-                          children: <TextSpan>[
-                            TextSpan(
-                              text: 'Hosted by ',
-                              style: TextStyle(color: Colors.white, fontSize: 20.0),
-                            ),
-                            TextSpan(
-                              text: 'Léo',
-                              style: TextStyle(
-                                color: Colors.white,
-                                fontSize: 20.0,
-                                decoration: TextDecoration.underline,
-                                decorationColor: Colors.white,
-                              ),
-                            ),
-                          ],
-                        ),
-                        softWrap: true,
-                      ),
+                      child: HostNameWidget()
                     ),
                     SizedBox(width: 6),
                     Icon(RemixIcons.verified_badge_line, color: Colors.white),

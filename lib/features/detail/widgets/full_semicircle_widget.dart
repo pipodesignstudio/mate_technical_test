@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:mate_technical_test/features/detail/widgets/main_arc_widget.dart';
+import 'package:mate_technical_test/features/detail/widgets/main_avatar_widget.dart';
 import 'package:mate_technical_test/features/detail/widgets/middle_arc_widget.dart';
 import 'package:mate_technical_test/features/detail/widgets/inner_arc_widget.dart';
 
@@ -8,38 +9,61 @@ class FullSemicricle extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final double width = MediaQuery.of(context).size.width * 0.8;
-    const double baseOffsetY = -40;
+    return LayoutBuilder(
+      builder: (context, constraints) {
+        final double maxWidth = constraints.maxWidth;
+        final double baseOffsetY = -(maxWidth * 0.1);
 
-    return Stack(
-      clipBehavior: Clip.none,
-      alignment: Alignment.center,
-      children: [
-        Transform.translate(
-          offset: const Offset(0, baseOffsetY),
-          child: SizedBox(
-            width: width,
-            height: 150,
-            child: const Center(child: MainArcWidget()),
+        return AspectRatio(
+          aspectRatio: 1.6,
+          child: Stack(
+            clipBehavior: Clip.none,
+            alignment: Alignment.center,
+            children: [
+              Align(
+                alignment: const Alignment(0, -0.4),
+                child: Transform.translate(
+                  offset: Offset(0, baseOffsetY),
+                  child: SizedBox(
+                    width: maxWidth * 0.8,
+                    height: maxWidth * 0.4,
+                    child: const Center(child: MainArcWidget()),
+                  ),
+                ),
+              ),
+              Align(
+                alignment: const Alignment(0, -0.2),
+                child: Transform.translate(
+                  offset: Offset(0, baseOffsetY + 12),
+                  child: SizedBox(
+                    width: maxWidth * 0.64,
+                    height: maxWidth * 0.32,
+                    child: const Center(child: MiddleArcWidget()),
+                  ),
+                ),
+              ),
+              Align(
+                alignment: Alignment.center,
+                child: Transform.translate(
+                  offset: Offset(0, baseOffsetY + 24),
+                  child: SizedBox(
+                    width: maxWidth * 0.52,
+                    height: maxWidth * 0.26,
+                    child: const Center(child: InnerCircle()),
+                  ),
+                ),
+              ),
+              Align(
+                alignment: const Alignment(0, 0.3),
+                child: Transform.translate(
+                  offset: Offset(0, baseOffsetY + 36),
+                  child: const MainCircleAvatar(),
+                ),
+              ),
+            ],
           ),
-        ),
-        Transform.translate(
-          offset: const Offset(0, baseOffsetY + 20),
-          child: SizedBox(
-            width: width * 0.8,
-            height: 120,
-            child: const Center(child: MiddleArcWidget()),
-          ),
-        ),
-        Transform.translate(
-          offset: const Offset(0, baseOffsetY + 40),
-          child: SizedBox(
-            width: width * 0.65,
-            height: 90,
-            child: const Center(child: InnerCircle()),
-          ),
-        ),
-      ],
+        );
+      },
     );
   }
 }
