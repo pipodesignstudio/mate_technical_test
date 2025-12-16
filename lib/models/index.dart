@@ -1,0 +1,1 @@
+export 'bottom_navigation_item_model.dart';
