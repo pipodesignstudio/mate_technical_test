@@ -17,7 +17,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         scaffoldBackgroundColor: const Color.fromRGBO(27, 27, 27, 1),
       ),
-      initialRoute: BasicRoutes.details,
+      initialRoute: BasicRoutes.feed,
       routes: {
         BasicRoutes.feed: (context) => const AppLayout(detailedView: false, view: FeedView()),
         BasicRoutes.details: (context) => const AppLayout(detailedView: true, view: DetailView()),

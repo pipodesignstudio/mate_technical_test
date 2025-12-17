@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:mate_technical_test/router/basic_routes.dart';
 import 'package:mate_technical_test/shared/widgets/index.dart';
-import 'package:mate_technical_test/shared/widgets/page_tag_widget.dart';
 import 'package:remixicon/remixicon.dart';
 
 
@@ -21,7 +20,7 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
               icon: const Icon(RemixIcons.arrow_left_s_line, color: Colors.white),
               onPressed: () => Navigator.pushNamed(context, BasicRoutes.feed),
             )
-          : DisciplineWidget(),
+          : FilterTagBtnWidget(),
       centerTitle: true,
       title: detailedView
           ? null

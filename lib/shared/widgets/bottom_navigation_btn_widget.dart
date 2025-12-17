@@ -36,7 +36,7 @@ class BottomNavigationBtn extends StatelessWidget {
                   ? Colors.white
                   : isHighlighted
                       ? Colors.black87
-                      : Colors.grey[600],
+                      : Colors.grey[500],
             ),
           )
         ],

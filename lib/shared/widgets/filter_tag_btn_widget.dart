@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:remixicon/remixicon.dart';
 
-class DisciplineWidget extends StatelessWidget {
-  const DisciplineWidget({super.key});
+class FilterTagBtnWidget extends StatelessWidget {
+  const FilterTagBtnWidget({super.key});
 
   @override
   Widget build(BuildContext context) {

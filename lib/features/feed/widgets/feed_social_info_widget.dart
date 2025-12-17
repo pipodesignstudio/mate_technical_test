@@ -17,16 +17,7 @@ class FeedSocialInfoWidget extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
               Expanded(
-                child: Row(
-                  mainAxisSize: MainAxisSize.min,
-                  children: const [
-                    Flexible(
-                      child: HostNameWidget()
-                    ),
-                    SizedBox(width: 6),
-                    Icon(RemixIcons.verified_badge_line, color: Colors.white),
-                  ],
-                ),
+                child:HostNameWidget()
               ),
               const SizedBox(width: 12),
               Container(

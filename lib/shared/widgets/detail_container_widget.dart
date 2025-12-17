@@ -9,12 +9,18 @@ class DetailContainerWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final BoxConstraints constraints = height != null
+        ? BoxConstraints.tightFor(height: height)
+        : const BoxConstraints(minHeight: 80);
+
     return ClipRRect(
       borderRadius: BorderRadius.circular(20),
       child: BackdropFilter(
         filter: ImageFilter.blur(sigmaX: 8, sigmaY: 8),
         child: Container(
-          height: height ?? 120,
+          constraints: constraints,
+          margin: const EdgeInsets.symmetric(vertical: 8.0),
+          width: double.infinity,
           padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
           decoration: BoxDecoration(
             color: Color.fromRGBO(42, 42, 42, .2)

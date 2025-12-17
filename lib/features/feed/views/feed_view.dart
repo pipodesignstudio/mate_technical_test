@@ -15,12 +15,15 @@ class FeedView extends StatelessWidget {
       alignment: Alignment.center,
       fit: StackFit.expand,
       children: <Widget>[
-        const Positioned.fill(
+         Positioned.fill(
           child: Hero(
             tag: heroTag,
-            child: Image(
-              image: AssetImage('assets/img/bg.png'),
-              fit: BoxFit.cover,
+            child: Transform.scale(
+              scale: 1.05,
+              child: Image(
+                image: AssetImage('assets/img/bg.png'),
+                fit: BoxFit.cover,
+              ),
             ),
           ),
         ),
@@ -29,7 +32,7 @@ class FeedView extends StatelessWidget {
           left: 0,
           right: 0,
           child: Container(
-            height: ss.height * .4,
+            height: ss.height * .45,
             width: double.infinity,
             decoration: const BoxDecoration(
               gradient: LinearGradient(

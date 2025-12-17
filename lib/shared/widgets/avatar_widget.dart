@@ -14,16 +14,15 @@ class AvatarWidget extends StatelessWidget {
     required this.size,
     required this.hasBorder,
     this.hasNoise = false,
-    this.images = avatarImages,
+    this.images = avatarImagesPaths,
   });
 
   @override
   Widget build(BuildContext context) {
-    final String imageUrl = images[index % images.length];
+    final String path = images[index % images.length];
     final Widget avatar = ClipOval(
-      child: FadeInImage.assetNetwork(
-        placeholder: 'assets/img/placeholder.png',
-        image: imageUrl,
+      child: Image.asset(
+        path,
         width: size,
         height: size,
         fit: BoxFit.cover,
